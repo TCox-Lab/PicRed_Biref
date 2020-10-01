@@ -2,7 +2,7 @@
 // #### CMM Lab website (www.matrixandmetastasis.com) ####
 // #### CMM Lab GitHub (www.github.com/tcox-lab) ####
 
-// This script is designed to automate the quantification of HSB thresholded area of picrosirus red birefringent signal in the "Red", "Orange-Yellow" and "Green" channels
+// This script is designed to automate the quantification of HSB thresholded area of picrosirus red birefringent signal in the "Red-Orange", "Yellow" and "Green" channels
 // These ranges roughly correspond to high, medium and low density/bundling of collagen fibres
 // The script will batch process entire folders including all sub-folders
 
@@ -31,8 +31,8 @@ run("Close All");
 // Setup variables for analysis
 FiTy=".xxx"; // Input filetype
 BrTh = 10; // Brightness minimum threshold
-ReMin = 0; // HSB (H) Red Minimum
-ReMax = 27; // HSB (H) Red Maximum
+ReMin = 0; // HSB (H) Red-Orange Minimum
+ReMax = 27; // HSB (H) Red-Orange Maximum
 YeMin = 28; // HSB (H) Yellow Minimum
 YeMax = 47; // HSB (H) Yellow Maximum
 GrMin = 48; // HSB (H) Green Minimum
@@ -76,8 +76,8 @@ if (Mem==true) MemMon = 1;
 if (EditHue==1){
 	Dialog.create("Advanced Hue/Saturation Settings");
 	Dialog.addMessage("Only change these settings\nif you know what you are doing");
-	Dialog.addNumber("Red Hue Min:", ReMin);
-	Dialog.addNumber("Red Hue Max:", ReMax);
+	Dialog.addNumber("Red-Orange Hue Min:", ReMin);
+	Dialog.addNumber("Red-Orange Hue Max:", ReMax);
 	Dialog.addNumber("Yellow Hue Min:", YeMin);
 	Dialog.addNumber("Yellow Hue Max:", YeMax);
 	Dialog.addNumber("Green Hue Min:", GrMin);
@@ -131,7 +131,7 @@ print("[Percent]","CMM Lab website (www.matrixandmetastasis.com)"+"\n");
 print("[Percent]","CMM Lab GitHub (www.github.com/tcox-lab)"+"\n\n");
 print("[Percent]", "Image"+"\t"+"% Red-Orange"+"\t"+"% Yellow"+"\t"+"% Green"+"\n");
 
-//Set batch mode to speed up processing
+// Set batch mode to speed up processing
 if (BaMod==1){
 	setBatchMode(true);
 	}
@@ -189,7 +189,7 @@ function processFile(path) {
 			run("Apply LUT");
 			}
 
-// #### Detect "Red" Fibre signal ####
+// #### Detect "Red-Orange" Fibre signal ####
 		selectWindow(name);
 		min=newArray(3);
 		max=newArray(3);
@@ -233,8 +233,8 @@ function processFile(path) {
 		setOption("BlackBackground", true);
 		run("Convert to Mask");
 		run("Measure");
-		ReFib=getResult("Area", 0); // Raw "Red" signal area
-		if (ChanOut==1){ // Save Red Output Image if selected, otherwise close
+		ReFib=getResult("Area", 0); // Raw "Red-Orange" signal area
+		if (ChanOut==1){ // Save Red-Orange Output Image if selected, otherwise close
 			selectWindow("Result of Result of 0");
 			rename("OverRed");
 			run("8-bit");
@@ -255,7 +255,7 @@ function processFile(path) {
 			close();
 			}
 
-// #### Detect "Orange-Yellow" Fibre Signal ####
+// #### Detect "Yellow" Fibre Signal ####
 		selectWindow(name);
 		min=newArray(3);
 		max=newArray(3);
@@ -300,7 +300,7 @@ function processFile(path) {
 		run("Convert to Mask");
 		run("Measure");
 		YeFib=getResult("Area", 1);
-		if (ChanOut==1){ // Save Orange-Yellow Output Image if selected, otherwise close
+		if (ChanOut==1){ // Save Yellow Output Image if selected, otherwise close
 			selectWindow("Result of Result of 0");
 			rename("OverYel");
 			run("8-bit");
@@ -421,8 +421,8 @@ print("[Parameters]","CMM Lab website (www.matrixandmetastasis.com)"+"\n");
 print("[Parameters]","CMM Lab GitHub (www.github.com/tcox-lab)"+"\n\n");
 print("[Parameters]","File Type Used = "+FiTy+"\n\n");
 print("[Parameters]","Brightness Threshold = "+BrTh+"\n\n");
-print("[Parameters]","Red Min = "+ReMin+"\n");
-print("[Parameters]","Red Max = "+ReMax+"\n");
+print("[Parameters]","Red-Orange Min = "+ReMin+"\n");
+print("[Parameters]","Red-Orange Max = "+ReMax+"\n");
 print("[Parameters]","Yellow Min = "+YeMin+"\n");
 print("[Parameters]","Yellow Max = "+YeMax+"\n");
 print("[Parameters]","Green Min = "+GrMin+"\n");
