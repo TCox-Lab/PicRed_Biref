@@ -5,7 +5,7 @@
 **ImageJ / FIJI script to analyse and quantify picrosirius red stained sections imaged under polarising light microscopy.**  
 _Requires ImageJ/FIJI 1.38m or above._  
 _Tested working on Mac OSX 10.14 and above._  
-_Tested working on Windows XX._
+_Tested working on Windows 10._
 
 _Last updated: 30th Sept 2020._
 
@@ -54,7 +54,7 @@ _*Output files (if enabled) are saved in .png format. Avoid using input files in
 
 ---
 ### Advanced variables specified by the user (_if enabled_) include:
-If enabled in Basic Paramter window, script will launch a second input window, allowing for customisation of colour channel thresholding, pre- and post-processing of the images:
+If enabled in Basic Parameter window, script will launch a second input window, allowing for customisation of colour channel thresholding, pre- and post-processing of the images:
 
 - **Red Minimum** - HSB (H) Red-Orange Minimum value
 - **Red Maximum** - HSB (H) Red-Orange Maximum value
