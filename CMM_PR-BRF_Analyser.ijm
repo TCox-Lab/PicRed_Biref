@@ -51,7 +51,7 @@ PreBCMax = 255; // Input image Brightness/Contrast Enhance (Maximum Value)
 BaMod = 0; // Batch mode setting for silent processing
 
 // Create Dialog window to accept user inputs
-Dialog.create("CMM PicRed BRF Analyser Settings");
+Dialog.create("CMM PicRed BRF Analyser "+ver+" Settings");
 Dialog.addString("Specify File Type", FiTy);
 Dialog.addNumber("Brightness Threshold:", BrTh);
 Dialog.addNumber("Resize Output Images (%):", scale);
