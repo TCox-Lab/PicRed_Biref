@@ -10,13 +10,15 @@ _Tested working on Windows 10._
 _Last updated: 30th Sept 2020._
 
 **Citation:**  
-Vennin C _et al._ (2019) _**Nature Communications**_ (2019)  
+Vennin C _et al. **Nature Communications**_ (2019)  
 _CAF hierarchy driven by pancreatic cancer cell p53-status creates a pro-metastatic and chemoresistant environment via perlecan_  
 doi: 10.1038/s41467-019-10968-6   
 [Pubmed link](https://pubmed.ncbi.nlm.nih.gov/31406163/)
 
 **Description:**  
-The script wraps the threshold colour function (HSB Thresholding) into a loop that iterates through all of the defined images in a directory and sub-directories specified by the user. _If using multiple sub-directories of images, please ensure that filenames are unique._
+The script wraps the threshold colour function (HSB Thresholding) into a loop that iterates through all of the defined images in a directory and sub-directories specified by the user.
+
+_If using multiple sub-directories of images, please ensure that filenames are unique._
 
 This script is designed to automate the quantification of HSB thresholded area of picrosirius red stained birefringent signal in the "Red-Orange, "Yellow" and "Green" channels in each image, outputting channel overlays and collated tabulated results.
 
@@ -31,7 +33,7 @@ Ensure you have ImageJ or FIJI (preferred) installed.
 - ImageJ is available from [here](https://github.com/imagej/imagej).
 - FIJI is available from [here](https://github.com/fiji/fiji).
 
-Copy the `CMM_PR-BRF_Analyser.ijm` to the ImageJ/FIJI `plugins` folder.  
+Copy the `CMM_PR-BRF_Analyser.ijm` to the ImageJ/FIJI `plugins` directory.  
 
 Restart ImageJ/FIJI.
 
@@ -54,7 +56,7 @@ _*Output files (if enabled) are saved in .png format. Avoid using input files in
 
 ---
 ### Advanced variables specified by the user (_if enabled_) include:
-If enabled in Basic Parameter window, script will launch a second input window, allowing for customisation of colour channel thresholding, pre- and post-processing of the images:
+If enabled in the Basic Parameter window, the script will launch a second input window, allowing for customisation of colour channel thresholding, pre- and post-processing of the images:
 
 - **Red Minimum** - HSB (H) Red-Orange Minimum value
 - **Red Maximum** - HSB (H) Red-Orange Maximum value
@@ -78,7 +80,7 @@ _**Once basic and advanced options have been chosen, you will be asked to specif
 The script can be set to output colour overlays of each of the quantified channels.  
 This is especially useful in QC'ing outputs, and for visual representations such as figures.  
 
-Each analysis will output a Red-Orange, Yellow, and Green overlay of the original image in `.png` format in the same folder as the original image.  
+Each analysis will output a Red-Orange, Yellow, and Green overlay of the original image in `.png` format in the same directory as the original image.  
 (_The original image always remains unchanged_)
 
 ---
@@ -91,3 +93,5 @@ The analysis will output three text files in the top level directory:
 2. `PR-BRF_RawResults.txt` - The absolute area values of the Red / Orange-Yellow and Green separated channels.
 
 3. `PR-BRF_PercentResults.txt` - The % area values of the Red / Orange-Yellow and Green separated channels in relation to total birefringent signal
+
+---
